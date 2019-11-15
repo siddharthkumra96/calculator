@@ -1,0 +1,11 @@
+.display {
+  width: 800px;
+}
+div.display input{
+  width: 95%;
+  border: none;
+  padding: 20px;
+  background-color: gray;
+  color:white;
+  text-align: right;
+}

@@ -1,0 +1,29 @@
+div * {
+  font-size: 36px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+}
+div.row button {
+  width: 100%;
+  padding: 20px;
+}
+.lastRow {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+}
+div.lastRow button{
+  width: 25%;
+  padding: 20px;
+}
+div.lastRow :nth-child(1){
+  width: 50%;
+  padding: 20px;
+}
+button {
+  text-decoration: none;
+  border: 1px solid black;
+}
