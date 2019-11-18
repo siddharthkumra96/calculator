@@ -1,4 +1,3 @@
-/* eslint-disable no-eval */
 let operand1 = "";
 let operand2 = "";
 let operator = "";
@@ -38,7 +37,7 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
     } else if (!operand2) {
       // to skip multiple '=' press
       if (!(operator === op && op === "=")) {
-        // only move ahead if there is some value entered, basically skipping multiple op presses
+      // only move ahead if there is some value entered, basically skipping multiple op presses
         if (currentValue) {
           operand2 = currentValue;
           if (op === "%") {
@@ -50,6 +49,8 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
           operand2 = "";
           operator = (op === "=" || op === "%") ? "" : op;
         }
+      } else {
+        operator = "";
       }
     }
     return String(operand1);
