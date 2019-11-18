@@ -24,7 +24,7 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
   if (!reset) {
     if (toggle && !currentValue && operand1) {
       operand1 = String(parseFloat(operand1) * -1);
-    } else if (!operand1) {
+    } else if (!(operand1 || operand1 === 0)) {
       // entering the first operand
       operand1 = currentValue;
       // if just after entering operand, the user clicks the perc sign
@@ -38,9 +38,6 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
     } else if (!operand2) {
       // to skip multiple '=' press
       if (!(operator === op && op === "=")) {
-        if (!(op === "=" || op === "%")) {
-          operator = op;
-        }
         // only move ahead if there is some value entered, basically skipping multiple op presses
         if (currentValue) {
           operand2 = currentValue;
@@ -51,7 +48,7 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
           operand1 = +operate(operand1, operator, operand2).toFixed(3);
           // setting the operator and operand2 to default values for the next iteration
           operand2 = "";
-          operator = "";
+          operator = (op === "=" || op === "%") ? "" : op;
         }
       }
     }

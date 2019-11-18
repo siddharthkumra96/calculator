@@ -4,9 +4,10 @@ import { isOperator, RESET, TOGGLESIGN } from "./data";
 const getNewState = (name, currentState) => {
   let newState = null;
   let { currentValue } = currentState;
-  const { decimalAdded, result } = currentState;
+  const { decimalAdded, result, initial } = currentState;
   if (name === RESET) {
     newState = {
+      initial: true,
       currentValue: "0",
       result: "",
     };
@@ -28,12 +29,16 @@ const getNewState = (name, currentState) => {
       result: calculate(currentValue, name),
     };
   } else {
-    if (currentValue === "0") {
+    if (initial) {
       currentValue = "";
+      newState = {
+        initial: false,
+      };
     }
     if (name === ".") {
       if (!decimalAdded) {
         newState = {
+          ...newState,
           currentValue: currentValue.concat(name),
           result: "",
           decimalAdded: true,
@@ -41,6 +46,7 @@ const getNewState = (name, currentState) => {
       }
     } else {
       newState = {
+        ...newState,
         currentValue: currentValue.concat(name),
         result: "",
       };
