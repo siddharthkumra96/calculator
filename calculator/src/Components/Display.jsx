@@ -6,7 +6,7 @@ const Display = (props) => {
   const { value, operation } = props;
   return (
     <div className="display">
-      <input value={value} disabled/>
+      <input value={value} disabled />
       <div className="operation">
         {operation}
       </div>
