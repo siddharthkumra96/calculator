@@ -29,8 +29,9 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
       // if just after entering operand, the user clicks the perc sign
       if (op === "%") {
         operand1 = parseFloat(operand1) / 100;
+      } else {
+        operator = op;
       }
-      operator = op;
     } else if (!operator) {
       // used in case the user does any operation on the result
       operator = op;
