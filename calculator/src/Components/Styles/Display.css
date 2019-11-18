@@ -1,11 +1,24 @@
 .display {
   width: 800px;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: gray;
+  color:white;
 }
-div.display input{
+
+div.display input {
   width: 95%;
   border: none;
   padding: 20px;
+  text-align: right;
+  margin-right: 5px;
   background-color: gray;
   color:white;
-  text-align: right;
+}
+
+.operation {
+  width: 2%;
+  float: right;
+  margin-right: 5px;
+  font-size: medium;
 }

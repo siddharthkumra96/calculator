@@ -1,4 +1,12 @@
 export const operators = ["=", "+", "-", "*", "/", "%", "+/-", "A/C"];
+const labels = {
+  "=": "=",
+  "+": "+",
+  "*": "x",
+  "/": "÷",
+  "+/-": " ",
+};
+export const getLabel = (operator) => labels[operator];
 export const isOperator = (op) => operators.includes(op);
 export const RESET = "A/C";
 export const TOGGLESIGN = "+/-";

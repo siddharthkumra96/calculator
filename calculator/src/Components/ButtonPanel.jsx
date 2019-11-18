@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 import "./Styles/ButtonPanel.css";
-import { operators, numbers } from "../js/data";
+import { operators, numbers, getLabel } from "../js/data";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class ButtonPanel extends React.Component {
@@ -26,7 +26,7 @@ class ButtonPanel extends React.Component {
           <Button
             name={operators[4]}
             onClick={handler}
-            label="÷"
+            label={getLabel(operators[4])}
             style={this.style}
           />
         </div>
@@ -37,7 +37,7 @@ class ButtonPanel extends React.Component {
           <Button
             name={operators[3]}
             onClick={handler}
-            label="x"
+            label={getLabel(operators[3])}
             style={this.style}
           />
         </div>

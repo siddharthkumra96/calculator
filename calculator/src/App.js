@@ -12,6 +12,8 @@ class App extends React.Component {
       initial: true,
       currentValue: "0",
       result: "",
+      operation: " ",
+      warning: "",
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -22,10 +24,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { currentValue, result } = this.state;
+    const {
+      currentValue, result, operation, warning,
+    } = this.state;
     return (
       <div className="App">
-        <Display value={result || currentValue} />
+        {warning}
+        <Display value={result || currentValue} operation={operation} />
         <ButtonPanel handler={this.handleClick} />
       </div>
     );
