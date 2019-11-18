@@ -1,7 +1,6 @@
 let operand1 = "";
 let operand2 = "";
 let operator = "";
-
 const operate = (op1, oper, op2) => {
   const a = parseFloat(op1);
   const b = parseFloat(op2);
@@ -21,7 +20,7 @@ const operate = (op1, oper, op2) => {
 
 const calculate = (currentValue, op, reset = false, toggle = false) => {
   if (!reset) {
-    if (toggle && !currentValue && operand1) {
+    if (toggle) {
       operand1 = String(parseFloat(operand1) * -1);
     } else if (!(operand1 || operand1 === 0)) {
       // entering the first operand
@@ -49,6 +48,8 @@ const calculate = (currentValue, op, reset = false, toggle = false) => {
           // setting the operator and operand2 to default values for the next iteration
           operand2 = "";
           operator = (op === "=" || op === "%") ? "" : op;
+        } else {
+          operator = op;
         }
       } else {
         operator = "";
